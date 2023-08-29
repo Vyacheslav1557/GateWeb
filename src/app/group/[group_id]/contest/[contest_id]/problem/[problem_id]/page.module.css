@@ -1,0 +1,13 @@
+.main {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

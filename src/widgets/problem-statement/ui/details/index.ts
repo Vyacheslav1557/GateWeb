@@ -1,0 +1,1 @@
+export {ProblemDetails} from "@/widgets/problem-statement/ui/details/ui";

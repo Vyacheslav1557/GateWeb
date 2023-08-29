@@ -1,0 +1,45 @@
+.subtitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.block {
+    width: 100%;
+    flex-direction: column;
+    align-items: baseline;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.buttonCopy {
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 4px;
+}
+
+.blockSample {
+    width: 100%;
+    padding: 7px 10px;
+    position: relative;
+    min-height: 46px;
+    align-items: center;
+    display: flex;
+
+    pre {
+        margin: 0;
+    }
+}
+
+.blockTitle {
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
+}

@@ -1,0 +1,17 @@
+.header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.hiddenMobile {
+    @media (max-width: 1000px) {
+        display: none !important;
+    }
+}
+
+.hiddenDesktop {
+    @media (min-width: 1000px) {
+        display: none !important;
+    }
+}
