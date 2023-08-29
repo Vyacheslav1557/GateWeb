@@ -2,13 +2,12 @@
 
 import React from 'react';
 import {useQuery} from "@tanstack/react-query";
+import {numToAlphaSeq} from "../../../../../../services/secondary/numToAlphaSeq";
 import {ContestService} from "../../../../../../services/contest.service";
+import {GroupService} from "../../../../../../services/group.service";
 import {useDocumentTitle} from "@mantine/hooks";
 import {Group} from "@mantine/core";
-import {numToAlphaSeq} from "../../../../../../services/secondary/numToAlphaSeq";
-import {StatusEllipse} from "@/widgets/sidebar";
-import {GroupService} from "../../../../../../services/group.service";
-import GroupNav from "../../../../../widgets/sidebar/ui/nav/ui";
+import {StatusEllipse, GroupNav} from "@/widgets/sidebar";
 import classes from "./page.module.css";
 
 // @ts-ignore
