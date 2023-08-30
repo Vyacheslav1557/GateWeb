@@ -37,7 +37,7 @@ const useScript = (src, id?, type?) => {
         return () => {
             document.body.removeChild(script);
         };
-    }, []);
+    });
 };
 
 
@@ -59,7 +59,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
                     <AppShell.Header zIndex={6}>
                         <Header/>
                     </AppShell.Header>
-                    <AppShell.Main>
+                    <AppShell.Main pb={100}>
                         {children}
                     </AppShell.Main>
                 </AppShell>

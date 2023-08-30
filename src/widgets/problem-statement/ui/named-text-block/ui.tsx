@@ -8,7 +8,7 @@ const NamedTextBlock: FunctionComponent<{ title: string, text: string }> = ({tit
         return <></>;
 
     return (
-        <Stack gap={0} className={classes.Block}>
+        <Stack gap={0} className={classes.Block} style={{width: "100%"}}>
             <h6 className={classes.title}>{title}</h6>
             <LatexComponent innerHTML={text}/>
         </Stack>
