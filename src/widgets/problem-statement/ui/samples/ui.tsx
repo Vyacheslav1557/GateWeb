@@ -1,11 +1,12 @@
+'use client';
+
 import {Group} from "@mantine/core";
 import React, {FunctionComponent} from "react";
-import {IProblem} from "../../../../../types/problem.interface";
+import {IProblem} from "../../api/types/problem.interface";
 import {CustomCopyButton} from "@/shared/ui";
 import classes from "./styles.module.css";
 
 const Sample: FunctionComponent<{ title: string, preText: string }> = ({title, preText}) => {
-
     return (
         <Group className={classes.block} gap={0}>
             <div className={classes.blockTitle}>{title}</div>
