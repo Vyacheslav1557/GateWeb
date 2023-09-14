@@ -2,3 +2,10 @@
     width: rem(14);
     height: rem(14);
 }
+
+.theme {
+    border-radius: 4px;
+    &:hover {
+        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-4));
+    }
+}
