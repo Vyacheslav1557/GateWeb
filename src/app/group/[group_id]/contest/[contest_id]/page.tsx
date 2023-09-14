@@ -3,16 +3,15 @@
 import React from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {numToAlphaSeq} from "../../../../../../services/secondary/numToAlphaSeq";
-import {ContestService} from "../../../../../../services/contest.service";
-import {GroupService} from "../../../../../../services/group.service";
+import {ContestService} from "@/widgets/problem-statement/api/contest.service";
+import {GroupService} from "@/widgets/problem-statement/api/group.service";
 import {useDocumentTitle} from "@mantine/hooks";
 import {Group} from "@mantine/core";
-import {StatusEllipse, GroupNav} from "@/widgets/sidebar";
+import {GroupNav, StatusEllipse} from "@/widgets/sidebar";
 import classes from "./page.module.css";
 
 // @ts-ignore
 const Page = ({params}) => {
-
     const {
         data: contest,
         isLoading: isLoadingContest
@@ -39,10 +38,10 @@ const Page = ({params}) => {
                     </div>
                     <div className={classes.details}>
                         <div>
-                            {problem.details.time_limit} ms
+                            {problem.time_limit} ms
                         </div>
                         <div>
-                            {problem.details.memory_limit} MB
+                            {problem.memory_limit} MB
                         </div>
                     </div>
                 </div>
