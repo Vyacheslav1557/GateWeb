@@ -7,8 +7,22 @@ import {useEffect} from "react";
 import {Header} from "@/widgets/header";
 import '@mantine/core/styles.css';
 
-// FIXME: добавить AuthProvider ???
-// TODO: Вход и регистрация ???
+// FIXME:
+// + Добавить AuthProvider ???
+// + Кнопка "Тема" подсвечивается тогда и только тогда, когда курсор на кнопке "Светлая"
+// TODO:
+// + Вход и регистрация ???
+// + Найти шрифт
+// + Сделать реакцию кнопки профиля
+// + Добавить раздел новостей (мб между названием контеста и списком задач)
+// + Вернуть буквы в названия задач
+// + Вернуть title
+// + Добавить реакцию кнопок на нажатие
+// + Добавить подсветку синтаксиса и моноширинный шрифт в окне посылки решения
+// + Убрать всю правую инфу в правый сайдбар (в мобильной версии как минимум)
+// + Вход по нажатию на user icon
+// + Кнопка "Выход" в user menu
+// + Мобильная версия
 
 
 declare global {
@@ -37,7 +51,7 @@ const useScript = (src, id?, type?) => {
         return () => {
             document.body.removeChild(script);
         };
-    });
+    }, []);
 };
 
 
@@ -54,7 +68,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <html lang="ru">
         <body>
         <QueryClientProvider client={queryClient}>
-            <MantineProvider>
+            <MantineProvider defaultColorScheme="auto">
                 <AppShell header={{height: 61}}>
                     <AppShell.Header zIndex={6}>
                         <Header/>
