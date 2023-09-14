@@ -2,8 +2,6 @@ import React, {FunctionComponent} from 'react';
 import {Button, Group, Select, Textarea} from "@mantine/core";
 import classes from "@/features/solution/ui/submit-form/styles.module.css";
 
-// FIXME: compilers -> fake_data
-
 const compilers = [
     "GNU GCC C11 5.1.0",
     "Clang++20 Diagnostics",
@@ -61,7 +59,7 @@ const SubmitForm: FunctionComponent = () => {
                         Отправить
                     </Button>
                 </Group>
-                <Textarea autosize maxRows={30} minRows={20} variant="default" className={classes.textArea}/>
+                <Textarea autosize maxRows={30} minRows={5} variant="default" className={classes.textArea}/>
             </Group>
         </Group>
     );
