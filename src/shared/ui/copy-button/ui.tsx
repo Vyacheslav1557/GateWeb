@@ -4,7 +4,7 @@ import {FunctionComponent} from "react";
 
 const CustomCopyButton: FunctionComponent<{ valueToCopy: string }> = ({valueToCopy}) => {
     return (
-        <CopyButton value={valueToCopy} timeout={2000}>
+        <CopyButton value={valueToCopy}>
             {({copied, copy}) => (
                 <Tooltip label={copied ? 'Скопировано' : 'Скопировать'} withArrow position="right">
                     <ActionIcon color={copied ? 'teal' : 'gray'} variant="subtle" onClick={copy}>
@@ -19,4 +19,5 @@ const CustomCopyButton: FunctionComponent<{ valueToCopy: string }> = ({valueToCo
         </CopyButton>
     );
 };
+
 export {CustomCopyButton};
