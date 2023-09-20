@@ -1,4 +1,15 @@
-import {Group, MantineColorScheme, Menu, UnstyledButton, useMantineColorScheme} from "@mantine/core";
+import {
+    Anchor,
+    Button,
+    Group,
+    MantineColorScheme,
+    Menu,
+    Modal,
+    PasswordInput,
+    TextInput,
+    UnstyledButton,
+    useMantineColorScheme
+} from "@mantine/core";
 import {
     IconAdjustmentsCheck,
     IconBrush,
@@ -13,7 +24,8 @@ import {useClickOutside, useDisclosure} from "@mantine/hooks";
 
 const Profile = () => {
     const {setColorScheme, colorScheme} = useMantineColorScheme();
-    const [opened, {toggle, close}] = useDisclosure(false);
+    const [menuOpened, {toggle, close}] = useDisclosure(false);
+    const [authOpened, {open: authOpen, close: authClose}] = useDisclosure(false);
 
     const ref = useClickOutside(() => close());
 
@@ -60,11 +72,39 @@ const Profile = () => {
         </Menu>
     );
 
+    const isAuthorized = true;
 
-    return (
-        <Menu shadow="md" width={183} opened={opened}>
+    const loginButton = (
+        <>
+            <Modal
+                opened={authOpened}
+                onClose={authClose}
+                title="Вход"
+                overlayProps={{
+                    backgroundOpacity: 0.55,
+                    blur: 3,
+                }}
+                yOffset="20%">
+                <TextInput label="Имя пользователя" placeholder="username" required/>
+                <PasswordInput label="Пароль" placeholder="password" required mt="md"/>
+                <Group justify="end" mt="lg">
+                    <Anchor component="button" size="sm">
+                        Забыли пароль?
+                    </Anchor>
+                </Group>
+                <Button fullWidth mt="xl">
+                    Войти
+                </Button>
+            </Modal>
+
+            <Button onClick={authOpen} variant="default">Войти</Button>
+        </>
+    );
+
+    const profileButton = (
+        <Menu shadow="md" width={183} opened={menuOpened}>
             <Menu.Target>
-                <IconUserCircle size="3.4rem" strokeWidth="1" onClick={toggle}/>
+                <IconUserCircle size="3.4rem" strokeWidth="1" onClick={toggle} style={{cursor: "pointer"}}/>
             </Menu.Target>
 
             <Menu.Dropdown ref={ref}>
@@ -79,6 +119,8 @@ const Profile = () => {
             </Menu.Dropdown>
         </Menu>
     );
+
+    return isAuthorized ? profileButton : loginButton;
 };
 
 export {Profile};

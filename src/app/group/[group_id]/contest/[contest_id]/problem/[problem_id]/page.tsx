@@ -22,7 +22,6 @@ const Page = ({params}) => {
     if (GroupQuery.isLoading || !GroupQuery.isSuccess)
         return <></>;
     // const alpha = numToAlphaSeq(contest.problems.findIndex((problem) => problem.id == params.problem_id));
-    console.log(GroupQuery.data);
     const contest = GroupQuery.data.contests.find((contest) => contest.id == params.contest_id);
 
 
