@@ -6,7 +6,6 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {useEffect} from "react";
 import {Header} from "@/widgets/header";
 import '@mantine/core/styles.css';
-import {SessionProvider} from "next-auth/react";
 
 // TODO:
 // + Найти шрифт
@@ -67,20 +66,18 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="ru">
         <body>
-        <SessionProvider baseUrl="http://localhost:3200">
-            <QueryClientProvider client={queryClient}>
-                <MantineProvider defaultColorScheme="auto">
-                    <AppShell header={{height: 61}}>
-                        <AppShell.Header zIndex={6}>
-                            <Header/>
-                        </AppShell.Header>
-                        <AppShell.Main pb={100}>
-                            {children}
-                        </AppShell.Main>
-                    </AppShell>
-                </MantineProvider>
-            </QueryClientProvider>
-        </SessionProvider>
+        <QueryClientProvider client={queryClient}>
+            <MantineProvider defaultColorScheme="auto">
+                <AppShell header={{height: 61}}>
+                    <AppShell.Header zIndex={6}>
+                        <Header/>
+                    </AppShell.Header>
+                    <AppShell.Main pb={100}>
+                        {children}
+                    </AppShell.Main>
+                </AppShell>
+            </MantineProvider>
+        </QueryClientProvider>
         </body>
         </html>
     );
