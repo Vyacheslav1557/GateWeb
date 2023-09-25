@@ -3,7 +3,7 @@ import {NamedTextBlock} from "./named-text-block";
 import {ProblemDetails} from "./details";
 import {ProblemSamples} from "./samples";
 import {useQuery} from "@tanstack/react-query";
-import {ProblemService} from "@/widgets/problem-statement/api/problem.service";
+import {ProblemService} from "@/widgets/problem-statement/api";
 
 // TODO: добавить поле scoring
 // TODO: undefined в comps

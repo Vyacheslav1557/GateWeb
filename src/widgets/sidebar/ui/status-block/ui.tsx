@@ -1,7 +1,7 @@
 import {Group} from "@mantine/core";
 import {numToAlphaSeq} from "../../../../../services/secondary/numToAlphaSeq";
 import React, {FunctionComponent} from "react";
-import {IContest} from "../../../problem-statement/api/types/contest.interface";
+import {IContest} from "@/widgets/problem-statement/api";
 import classes from "./styles.module.css";
 
 // @ts-ignore

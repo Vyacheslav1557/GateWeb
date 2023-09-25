@@ -3,8 +3,7 @@
 import React from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {numToAlphaSeq} from "../../../../../../services/secondary/numToAlphaSeq";
-import {ContestService} from "@/widgets/problem-statement/api/contest.service";
-import {GroupService} from "@/widgets/problem-statement/api/group.service";
+import {ContestService, GroupService} from "@/widgets/problem-statement/api";
 import {useDocumentTitle} from "@mantine/hooks";
 import {Group} from "@mantine/core";
 import {GroupNav, StatusEllipse} from "@/widgets/sidebar";

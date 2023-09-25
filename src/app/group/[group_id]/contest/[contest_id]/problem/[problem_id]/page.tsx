@@ -6,7 +6,7 @@ import {useQuery} from "@tanstack/react-query";
 import {GroupNav, Statuses} from "@/widgets/sidebar";
 import {Statement} from "@/widgets/problem-statement";
 import {SubmitForm} from "@/features/solution/ui/submit-form/ui";
-import {GroupService} from "@/widgets/problem-statement/api/group.service";
+import {GroupService} from "@/widgets/problem-statement/api";
 import classes from "./page.module.css";
 
 // FIXME: добавить проверки на useQuery
