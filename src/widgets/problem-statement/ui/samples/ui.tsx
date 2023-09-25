@@ -2,7 +2,7 @@
 
 import {Group} from "@mantine/core";
 import React, {FunctionComponent} from "react";
-import {IProblem} from "../../api/types/problem.interface";
+import {IProblem} from "@/widgets/problem-statement/api";
 import {CustomCopyButton} from "@/shared/ui";
 import classes from "./styles.module.css";
 

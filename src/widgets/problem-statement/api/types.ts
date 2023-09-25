@@ -21,4 +21,16 @@ interface IProblem {
     scoring: string
 }
 
-export type {ISample, IProblem};
+interface IContest {
+    id: number,
+    title: string,
+    problems: IProblem[],
+}
+
+interface IGroup {
+    id: number,
+    title: string,
+    contests: IContest[]
+}
+
+export type {ISample, IProblem, IContest, IGroup};
