@@ -21,11 +21,18 @@ import {
 } from '@tabler/icons-react';
 import styles from "./styles.module.css";
 import {useClickOutside, useDisclosure} from "@mantine/hooks";
+import {useContext, useState} from "react";
+import {AuthContext} from "@/shared/lib/auth";
 
 const Profile = () => {
     const {setColorScheme, colorScheme} = useMantineColorScheme();
     const [menuOpened, {toggle, close}] = useDisclosure(false);
     const [authOpened, {open: authOpen, close: authClose}] = useDisclosure(false);
+
+    const {isLoggedIn, login, logout} = useContext(AuthContext);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
 
     const ref = useClickOutside(() => close());
 
@@ -72,7 +79,6 @@ const Profile = () => {
         </Menu>
     );
 
-    const isAuthorized = true;
 
     const loginButton = (
         <>
@@ -85,15 +91,21 @@ const Profile = () => {
                     blur: 3,
                 }}
                 yOffset="20%">
-                <TextInput label="Имя пользователя" placeholder="username" required/>
-                <PasswordInput label="Пароль" placeholder="password" required mt="md"/>
+                <TextInput label="Имя пользователя"
+                           placeholder="username"
+                           onChange={(val) => setUsername(val.currentTarget.value)}
+                           required/>
+                <PasswordInput label="Пароль"
+                               placeholder="password"
+                               required mt="md"
+                               onChange={(val) => setPassword(val.currentTarget.value)}/>
                 <Group justify="end" mt="lg">
                     <Anchor component="button" size="sm">
                         Забыли пароль?
                     </Anchor>
                 </Group>
-                <Button fullWidth mt="xl">
-                    Войти
+                <Button fullWidth mt="xl" type="submit"  onClick={() => login({username, password})}>
+                    Войти в аккаунт
                 </Button>
             </Modal>
 
@@ -113,6 +125,7 @@ const Profile = () => {
                 <Menu.Item
                     color="red"
                     leftSection={<IconLogout className={styles.icon}/>}
+                    onClick={logout}
                 >
                     Выйти из аккаунта
                 </Menu.Item>
@@ -120,7 +133,7 @@ const Profile = () => {
         </Menu>
     );
 
-    return isAuthorized ? profileButton : loginButton;
+    return isLoggedIn ? profileButton : loginButton;
 };
 
 export {Profile};

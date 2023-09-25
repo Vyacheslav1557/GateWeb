@@ -7,7 +7,7 @@ interface IUserAuth extends IUser {
 }
 
 interface IToken {
-    token: string
+    access_token: string
 }
 
 interface IValidation extends IToken, IUser {

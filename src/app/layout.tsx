@@ -6,6 +6,7 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {useEffect} from "react";
 import {Header} from "@/widgets/header";
 import '@mantine/core/styles.css';
+import {AuthProvider} from "@/shared/lib/auth";
 
 // TODO:
 // + Найти шрифт
@@ -19,9 +20,6 @@ import '@mantine/core/styles.css';
 // + Мобильная версия
 // + Skeletons
 // + Переместить problem-statement/api в shared/api/?
-// CURRENT TASK:
-// + Добавить AuthProvider ???
-// + Вход и регистрация ???
 
 
 declare global {
@@ -66,18 +64,20 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="ru">
         <body>
-        <QueryClientProvider client={queryClient}>
-            <MantineProvider defaultColorScheme="auto">
-                <AppShell header={{height: 61}}>
-                    <AppShell.Header zIndex={6}>
-                        <Header/>
-                    </AppShell.Header>
-                    <AppShell.Main pb={100}>
-                        {children}
-                    </AppShell.Main>
-                </AppShell>
-            </MantineProvider>
-        </QueryClientProvider>
+        <AuthProvider>
+            <QueryClientProvider client={queryClient}>
+                <MantineProvider defaultColorScheme="auto">
+                    <AppShell header={{height: 61}}>
+                        <AppShell.Header zIndex={6}>
+                            <Header/>
+                        </AppShell.Header>
+                        <AppShell.Main pb={100}>
+                            {children}
+                        </AppShell.Main>
+                    </AppShell>
+                </MantineProvider>
+            </QueryClientProvider>
+        </AuthProvider>
         </body>
         </html>
     );
