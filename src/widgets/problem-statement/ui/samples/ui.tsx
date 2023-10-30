@@ -21,7 +21,7 @@ const Sample: FunctionComponent<{ title: string, preText: string }> = ({title, p
 };
 
 const ProblemSamples: FunctionComponent<{ problem: IProblem }> = ({problem}) => {
-    if (!problem.samples.length)
+    if (!problem.samples?.length)
         return <></>;
 
     const samples = problem.samples.map((item, index) => (
