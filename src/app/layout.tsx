@@ -3,10 +3,10 @@
 import './global.css';
 import {AppShell, MantineProvider} from '@mantine/core';
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {useEffect} from "react";
 import {Header} from "@/widgets/header";
 import '@mantine/core/styles.css';
 import {AuthProvider} from "@/shared/lib/auth";
+import Script from "next/script";
 
 // TODO:
 // + Найти шрифт
@@ -20,6 +20,7 @@ import {AuthProvider} from "@/shared/lib/auth";
 // + Мобильная версия
 // + Skeletons
 // + Переместить problem-statement/api в shared/api/?
+// + Dropzone
 
 
 declare global {
@@ -28,41 +29,16 @@ declare global {
     }
 }
 
-// @ts-ignore
-const useScript = (src, id?, type?) => {
-    // TODO: refactor
-    // TODO: add dependencies
-
-    useEffect(() => {
-        const script = document.createElement('script');
-
-        script.src = src;
-        script.async = true;
-        if (id)
-            script.id = id;
-        if (type)
-            script.type = type;
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-};
-
-
 const queryClient = new QueryClient();
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
 
-    useScript("https://polyfill.io/v3/polyfill.min.js?features=es6");
-    useScript("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js",
-        "text/javascript");
-
-
     return (
         <html lang="ru">
+        <head>
+            <Script src="https://polyfill.io/v3/polyfill.min.js?features=es6"/>
+            <Script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"/>
+        </head>
         <body>
         <AuthProvider>
             <QueryClientProvider client={queryClient}>
